@@ -5,7 +5,7 @@
 class VclusterExperimental < Formula
   desc "Creates fully functional virtual k8s cluster inside host k8s cluster's namespace"
   homepage "https://www.vcluster.com"
-  version "0.16.0-beta.2"
+  version "0.16.0-beta.3"
   license "Apache-2.0"
 
   depends_on "helm"
@@ -13,38 +13,18 @@ class VclusterExperimental < Formula
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.16.0-beta.2/vcluster-experimental-darwin-amd64"
-      sha256 "ce29b00d2bbbbd817b27f7b90ea608f5ea77193a440c544bd43fa1c73c02749c"
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.16.0-beta.3/vcluster-experimental-darwin-amd64"
+      sha256 "b74f97f80d33080b8874d3446d8a3b7256ad5a89648dff8e7f0943312f5c1a9e"
 
       def install
-        existing_version = `vcluster --version`.chomp rescue nil
-        if existing_version
-          matched = existing_version.match(/vcluster version (\S+)/)
-          existing_version = matched[1] if matched
-
-          if version <= Version.new(existing_version)
-            odie "Another binary named `vcluster` (version #{existing_version}) already exists on the system. Please remove it before installing this formula."
-          end
-        end
-
         bin.install "vcluster-experimental-darwin-amd64" => "vcluster"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.16.0-beta.2/vcluster-experimental-darwin-arm64"
-      sha256 "358fc183d2ee411fb01cd5c0f500336da8a05bbb93b7b7150a10c431a09f1ccf"
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.16.0-beta.3/vcluster-experimental-darwin-arm64"
+      sha256 "cacb2dd8a371c76c8a893ee24683a254cb47ae3e6eaecf923632cc09eb1f2ebd"
 
       def install
-        existing_version = `vcluster --version`.chomp rescue nil
-        if existing_version
-          matched = existing_version.match(/vcluster version (\S+)/)
-          existing_version = matched[1] if matched
-
-          if version <= Version.new(existing_version)
-            odie "Another binary named `vcluster` (version #{existing_version}) already exists on the system. Please remove it before installing this formula."
-          end
-        end
-
         bin.install "vcluster-experimental-darwin-arm64" => "vcluster"
       end
     end
@@ -52,60 +32,33 @@ class VclusterExperimental < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.16.0-beta.2/vcluster-experimental-linux-amd64"
-      sha256 "5742ebd10ae0b80bb7685ad55ab34e84f1112e709e3f141dee52c14dccbd10be"
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.16.0-beta.3/vcluster-experimental-linux-amd64"
+      sha256 "b81224ae37e6291608318a120864f5373c0a29e05fe5dbe61140e91a3f682832"
 
       def install
-        existing_version = `vcluster --version`.chomp rescue nil
-        if existing_version
-          matched = existing_version.match(/vcluster version (\S+)/)
-          existing_version = matched[1] if matched
-
-          if version <= Version.new(existing_version)
-            odie "Another binary named `vcluster` (version #{existing_version}) already exists on the system. Please remove it before installing this formula."
-          end
-        end
-
         bin.install "vcluster-experimental-linux-amd64" => "vcluster"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.16.0-beta.2/vcluster-experimental-linux-arm64"
-      sha256 "6d0fa4857f199f6fe37ba04a6a1d8c7595cc120d466a4a59e69aa4fd8de969a3"
-
-      def install
-        existing_version = `vcluster --version`.chomp rescue nil
-        if existing_version
-          matched = existing_version.match(/vcluster version (\S+)/)
-          existing_version = matched[1] if matched
-
-          if version <= Version.new(existing_version)
-            odie "Another binary named `vcluster` (version #{existing_version}) already exists on the system. Please remove it before installing this formula."
-          end
-        end
-
-        bin.install "vcluster-experimental-linux-arm64" => "vcluster"
-      end
-    end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.16.0-beta.2/vcluster-experimental-linux-arm"
-      sha256 "dcce39b93fe7320e404ed61dd5450cc4cf9670a0bf63e3871bc899163a8d1bd4"
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.16.0-beta.3/vcluster-experimental-linux-arm"
+      sha256 "1f9d30b79764bff322a49a21106e2863bd1911ede04cdc113b8dd024ef4236d4"
 
       def install
-        existing_version = `vcluster --version`.chomp rescue nil
-        if existing_version
-          matched = existing_version.match(/vcluster version (\S+)/)
-          existing_version = matched[1] if matched
-
-          if version <= Version.new(existing_version)
-            odie "Another binary named `vcluster` (version #{existing_version}) already exists on the system. Please remove it before installing this formula."
-          end
-        end
-
         bin.install "vcluster-experimental-linux-arm" => "vcluster"
       end
     end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.16.0-beta.3/vcluster-experimental-linux-arm64"
+      sha256 "a06ad3caee8a4a97bbeec5efc4f2fbf4984c686cfb8242891020090c48b670fa"
+
+      def install
+        bin.install "vcluster-experimental-linux-arm64" => "vcluster"
+      end
+    end
   end
+
+  conflicts_with "vcluster"
+  conflicts_with "loft-sh/tap/vcluster"
 
   test do
     help_output = "vcluster root command"
