@@ -5,50 +5,50 @@
 class LoftExperimental < Formula
   desc "Namespace & Virtual Cluster Manager for Kubernetes - Lightweight Virtual Clusters, Self-Service Provisioning for Engineers and 70% Cost Savings with Sleep Mode"
   homepage "https://loft.sh"
-  version "3.4.3"
+  version "3.4.4-beta.0"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/loft-sh/loft/releases/download/v3.4.3/loft-darwin-arm64"
-      sha256 "bbb8f15eedb2b28bf98c3627550f6cbd9c8bd13a3566d0a6f1b5b0ee3ba990f1"
-
-      def install
-        bin.install "loft-darwin-arm64" => "loft"
-      end
-    end
     if Hardware::CPU.intel?
-      url "https://github.com/loft-sh/loft/releases/download/v3.4.3/loft-darwin-amd64"
-      sha256 "24cc6ca82df76d52f6214fa3fc149e5c7d553536b9121be42247c2cd21c25f3d"
+      url "https://github.com/loft-sh/loft/releases/download/v3.4.4-beta.0/loft-darwin-amd64"
+      sha256 "7c8b0b014c9f9fa4ff6095b61a5932041f38797e39d971b120fdadaa275bb3b0"
 
       def install
         bin.install "loft-darwin-amd64" => "loft"
       end
     end
+    if Hardware::CPU.arm?
+      url "https://github.com/loft-sh/loft/releases/download/v3.4.4-beta.0/loft-darwin-arm64"
+      sha256 "d5ad6d47ee8321652112bb7e3b6b20e10713f2ca2116603b1749b8b706692362"
+
+      def install
+        bin.install "loft-darwin-arm64" => "loft"
+      end
+    end
   end
 
   on_linux do
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/loft-sh/loft/releases/download/v3.4.4-beta.0/loft-linux-arm"
+      sha256 "82a28fe642f9c954055aeea1c0bf1a736de4911be02e157a319afaf2d6e6d815"
+
+      def install
+        bin.install "loft-linux-arm" => "loft"
+      end
+    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/loft-sh/loft/releases/download/v3.4.3/loft-linux-arm64"
-      sha256 "73cfd99275ab498003f32622b4558ac578f44262959bc78f1c6de67d94ad0372"
+      url "https://github.com/loft-sh/loft/releases/download/v3.4.4-beta.0/loft-linux-arm64"
+      sha256 "8023732254489609f546af3161b28ca59c26b1b6b9e7e15b27cc413bd915abfb"
 
       def install
         bin.install "loft-linux-arm64" => "loft"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/loft-sh/loft/releases/download/v3.4.3/loft-linux-amd64"
-      sha256 "620b9a35e30ec467e0e4402075f284d019e2a6956217de63d3968a9e01465880"
+      url "https://github.com/loft-sh/loft/releases/download/v3.4.4-beta.0/loft-linux-amd64"
+      sha256 "1805ec2b731cd0db84882fdc4727d54c2483c914c87ad873e05effd76bc3ccb4"
 
       def install
         bin.install "loft-linux-amd64" => "loft"
-      end
-    end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/loft-sh/loft/releases/download/v3.4.3/loft-linux-arm"
-      sha256 "73150d11ce7ad62053648ee932802633f96c276c4305e3cef70b88260c25a7a8"
-
-      def install
-        bin.install "loft-linux-arm" => "loft"
       end
     end
   end
