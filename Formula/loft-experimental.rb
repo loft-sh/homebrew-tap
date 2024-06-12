@@ -27,6 +27,14 @@ class LoftExperimental < Formula
   end
 
   on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/loft-sh/loft/releases/download/v3.4.7-rc.1/loft-linux-amd64"
+      sha256 "11f4f2d44a5bef500b979c36ab3c346c3352cdd18135562c1cc60f7f86790c01"
+
+      def install
+        bin.install "loft-linux-amd64" => "loft"
+      end
+    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/loft-sh/loft/releases/download/v3.4.7-rc.1/loft-linux-arm64"
       sha256 "07d8546724cd4d79a8f655c5ead91f735f27266e7520cd53015cfc16ab8f5cca"
@@ -41,14 +49,6 @@ class LoftExperimental < Formula
 
       def install
         bin.install "loft-linux-arm" => "loft"
-      end
-    end
-    if Hardware::CPU.intel?
-      url "https://github.com/loft-sh/loft/releases/download/v3.4.7-rc.1/loft-linux-amd64"
-      sha256 "11f4f2d44a5bef500b979c36ab3c346c3352cdd18135562c1cc60f7f86790c01"
-
-      def install
-        bin.install "loft-linux-amd64" => "loft"
       end
     end
   end
