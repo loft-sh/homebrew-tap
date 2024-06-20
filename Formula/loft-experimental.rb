@@ -10,7 +10,7 @@ class LoftExperimental < Formula
   on_macos do
     on_intel do
       url "https://github.com/loft-sh/loft/releases/download/v3.4.8/loft-darwin-amd64"
-      sha256 "d6b138491e493a635e9b13456427c6f7a8263978740a794527d1574daf831a41"
+      sha256 "751ae314ef82a23ed80823b65f40f74493e4a237e02fe76fe1d372a74c31465a"
 
       def install
         bin.install "loft-darwin-amd64" => "loft"
@@ -18,7 +18,7 @@ class LoftExperimental < Formula
     end
     on_arm do
       url "https://github.com/loft-sh/loft/releases/download/v3.4.8/loft-darwin-arm64"
-      sha256 "d8353a26d015307b351d7956a86916293c9687bb1e725d622a54daeebd20976a"
+      sha256 "7cf6ca00938d6fd52d6a7aa41797b59898c6f43a3fdfe17a5abbf8715774a540"
 
       def install
         bin.install "loft-darwin-arm64" => "loft"
@@ -30,7 +30,7 @@ class LoftExperimental < Formula
     on_intel do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/loft-sh/loft/releases/download/v3.4.8/loft-linux-amd64"
-        sha256 "b8600b17d28aff0367b48cb664007f739c7142df95d951e53dbce07115298fbe"
+        sha256 "f0fcdb078703bbd0f08d00d7dd6097b8402881ab0b2bf11b3aeb0696980331df"
 
         def install
           bin.install "loft-linux-amd64" => "loft"
@@ -40,7 +40,7 @@ class LoftExperimental < Formula
     on_arm do
       if !Hardware::CPU.is_64_bit?
         url "https://github.com/loft-sh/loft/releases/download/v3.4.8/loft-linux-arm"
-        sha256 "781e1e097eb72e93ddaf8ca46795a25757ba476e2a7a6083e23e8b05839ba825"
+        sha256 "036f687385cfa53017161bf6dd62c33875cfb487614725e68b3183ffa3f0546c"
 
         def install
           bin.install "loft-linux-arm" => "loft"
@@ -50,7 +50,7 @@ class LoftExperimental < Formula
     on_arm do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/loft-sh/loft/releases/download/v3.4.8/loft-linux-arm64"
-        sha256 "02e9f442a320ca526a87e317f681783659d01d90f536093c9d90ec45a839aa55"
+        sha256 "39ba01755896c75a05ededad6069d42a039f55301b799803c35b6774dad04618"
 
         def install
           bin.install "loft-linux-arm64" => "loft"
