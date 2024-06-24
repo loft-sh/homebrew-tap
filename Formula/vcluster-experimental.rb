@@ -14,7 +14,7 @@ class VclusterExperimental < Formula
   on_macos do
     on_intel do
       url "https://github.com/loft-sh/vcluster/releases/download/v0.20.0-beta.10/vcluster-darwin-amd64"
-      sha256 "33f71ab3735ce806ee9d56e3e2b3d352e6834080c72d0732d81c0ed292c39f12"
+      sha256 "b2817d57ae0f32aab07d0a65f2495171927805f0ab166ccca3355ef8b9b581b1"
 
       def install
         bin.install "vcluster-darwin-amd64" => "vcluster"
@@ -22,7 +22,7 @@ class VclusterExperimental < Formula
     end
     on_arm do
       url "https://github.com/loft-sh/vcluster/releases/download/v0.20.0-beta.10/vcluster-darwin-arm64"
-      sha256 "90ca712cf952bbc2cc8a5790a9fe6295750f420f706fac5243e5548c588814b9"
+      sha256 "0e3645c033961649e7ee22d85aa4dd9afdb08fd01c2b37724b26594e74ff9396"
 
       def install
         bin.install "vcluster-darwin-arm64" => "vcluster"
@@ -34,7 +34,7 @@ class VclusterExperimental < Formula
     on_intel do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/loft-sh/vcluster/releases/download/v0.20.0-beta.10/vcluster-linux-amd64"
-        sha256 "2947b238dc4b3458123f9ad11ea75dae61f1f978460596f958431ccbec6787b8"
+        sha256 "1dde25d88d236e5b788736d67a7d2c74b99eb1f94e42e3b46706d88e6385ebd4"
 
         def install
           bin.install "vcluster-linux-amd64" => "vcluster"
@@ -44,7 +44,7 @@ class VclusterExperimental < Formula
     on_arm do
       if !Hardware::CPU.is_64_bit?
         url "https://github.com/loft-sh/vcluster/releases/download/v0.20.0-beta.10/vcluster-linux-arm"
-        sha256 "841c5c6fbaad04bc8397b7382bd23d72b2e5ee1a395278ba2bbe008dd05b1b8d"
+        sha256 "ec57324b3b3e2627e9b07e314dcdf8dafc8bdd6b368f33ba1c7d88e780632d0a"
 
         def install
           bin.install "vcluster-linux-arm" => "vcluster"
@@ -54,7 +54,7 @@ class VclusterExperimental < Formula
     on_arm do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/loft-sh/vcluster/releases/download/v0.20.0-beta.10/vcluster-linux-arm64"
-        sha256 "1042e7ce8c4228b680e52589a9ae9935c9cef9a24b73d8072b955af2880867b2"
+        sha256 "db8bccd4b3d8ef6b384d15a8b1a01a3bbeb8d84f0ae19298bc90389926b4d612"
 
         def install
           bin.install "vcluster-linux-arm64" => "vcluster"
