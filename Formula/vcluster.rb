@@ -5,7 +5,7 @@
 class Vcluster < Formula
   desc "Creates fully functional virtual k8s cluster inside host k8s cluster's namespace"
   homepage "https://www.vcluster.com"
-  version "0.20.3"
+  version "0.20.4"
   license "Apache-2.0"
 
   depends_on "helm"
@@ -13,16 +13,16 @@ class Vcluster < Formula
 
   on_macos do
     on_intel do
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.20.3/vcluster-darwin-amd64"
-      sha256 "a01655b9cb2b4294339613263168e77fe3c86dd60e6d3bcc8879a32a3388ba4f"
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.20.4/vcluster-darwin-amd64"
+      sha256 "fb45410f97b9a8313751920e7fb25377257b267b7628930c10199cc0a9403a3b"
 
       def install
         bin.install "vcluster-darwin-amd64" => "vcluster"
       end
     end
     on_arm do
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.20.3/vcluster-darwin-arm64"
-      sha256 "b0109891ccbedebe414482c9d40c122aaa73f7d7203bfbd6158f444c9ee95e02"
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.20.4/vcluster-darwin-arm64"
+      sha256 "3d19ac9c657dd8c427c361466ffdd6dcf1793d15788b514ae610606aa3489161"
 
       def install
         bin.install "vcluster-darwin-arm64" => "vcluster"
@@ -33,8 +33,8 @@ class Vcluster < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/loft-sh/vcluster/releases/download/v0.20.3/vcluster-linux-amd64"
-        sha256 "f1ec225ae29c68f39cf6a9989b9038ea1abaa4fcbed1928d83764b300a3e3637"
+        url "https://github.com/loft-sh/vcluster/releases/download/v0.20.4/vcluster-linux-amd64"
+        sha256 "10440419b2446ab1fb63830b2569d2d9cd50fc31f38923dddde670e8f89d0302"
 
         def install
           bin.install "vcluster-linux-amd64" => "vcluster"
@@ -43,8 +43,8 @@ class Vcluster < Formula
     end
     on_arm do
       if !Hardware::CPU.is_64_bit?
-        url "https://github.com/loft-sh/vcluster/releases/download/v0.20.3/vcluster-linux-arm"
-        sha256 "74c0ece3e77b860b0ac33c18e7dc97629b485aaa47c26c049f1312a1a296dc22"
+        url "https://github.com/loft-sh/vcluster/releases/download/v0.20.4/vcluster-linux-arm"
+        sha256 "f9091fe65e71e542f1ffa3456699c0ee3f0d88c2989470198441f64ecd02129e"
 
         def install
           bin.install "vcluster-linux-arm" => "vcluster"
@@ -53,8 +53,8 @@ class Vcluster < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/loft-sh/vcluster/releases/download/v0.20.3/vcluster-linux-arm64"
-        sha256 "6816cbbfbcf196793cdf942bfe160b00b43b8e9a318b7a42ac1a38c1ca1d4f54"
+        url "https://github.com/loft-sh/vcluster/releases/download/v0.20.4/vcluster-linux-arm64"
+        sha256 "1a2e72378258c6a79c459356a0c39c95bce84b6f884c458a2d2fe7e4f58fe926"
 
         def install
           bin.install "vcluster-linux-arm64" => "vcluster"
