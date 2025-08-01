@@ -5,7 +5,7 @@
 class VclusterExperimental < Formula
   desc "Creates fully functional virtual k8s cluster inside host k8s cluster's namespace"
   homepage "https://www.vcluster.com"
-  version "0.27.0-rc.0"
+  version "0.28.0-next.5"
   license "Apache-2.0"
 
   depends_on "helm"
@@ -13,16 +13,16 @@ class VclusterExperimental < Formula
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.27.0-rc.0/vcluster-darwin-amd64"
-      sha256 "07b8c639215cdd596b904993bae198a33be9a9e11d5ebb5b96b126b5181fdf44"
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.28.0-next.5/vcluster-darwin-amd64"
+      sha256 "c9632a9166f45f5645830cd974088fe81473d29c18dbe39fad405f64a4809ebc"
 
       def install
         bin.install "vcluster-darwin-amd64" => "vcluster"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.27.0-rc.0/vcluster-darwin-arm64"
-      sha256 "e333d86ecba1387a658f5890b5ba111314a6bef47137214692c2a867909a56f5"
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.28.0-next.5/vcluster-darwin-arm64"
+      sha256 "0f976e5e6243c8ef311843916f376aef7c5769deefa4bfe6be9ae444d314a6f8"
 
       def install
         bin.install "vcluster-darwin-arm64" => "vcluster"
@@ -32,15 +32,15 @@ class VclusterExperimental < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.27.0-rc.0/vcluster-linux-amd64"
-      sha256 "7cba9dbf595307e6e165ed46958d55356aacd90b7f6bc7191634cca684236af4"
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.28.0-next.5/vcluster-linux-amd64"
+      sha256 "11bb9e975d7cfc2e28dec9390b0acfbfa8188bd89b444bf7a5fca7b681646f25"
       def install
         bin.install "vcluster-linux-amd64" => "vcluster"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.27.0-rc.0/vcluster-linux-arm64"
-      sha256 "6a2182bc13d8e965cab661976e8189b5323c7bc14d41ee0423a7a3557be68ecf"
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.28.0-next.5/vcluster-linux-arm64"
+      sha256 "7799ae21c4815596e304dd8e3abe16d425e10ca4faff84ad4b6d5ab89488ae56"
       def install
         bin.install "vcluster-linux-arm64" => "vcluster"
       end
