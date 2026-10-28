@@ -5,7 +5,7 @@
 class VclusterExperimental < Formula
   desc "Creates fully functional virtual k8s cluster inside host k8s cluster's namespace"
   homepage "https://www.vcluster.com"
-  version "0.35.5-rc.3"
+  version "0.36.4-rc.3"
   license "Apache-2.0"
 
   depends_on "helm"
@@ -13,16 +13,16 @@ class VclusterExperimental < Formula
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.35.5-rc.3/vcluster-darwin-amd64"
-      sha256 "a9730548202ea49791a45677c21c0f25a3fb919022f7dbfbf69fa33b320ee90f"
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.36.4-rc.3/vcluster-darwin-amd64"
+      sha256 "06e47b508920da14e67f5ef154f2c7b96c567f4fea4331adaf3a32b9cc99ec2b"
 
       define_method(:install) do
         bin.install "vcluster-darwin-amd64" => "vcluster"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.35.5-rc.3/vcluster-darwin-arm64"
-      sha256 "996f76911b46d6aae3bad6290dd1bc6ac53d53c352351b9a3c31afdee3f2aea4"
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.36.4-rc.3/vcluster-darwin-arm64"
+      sha256 "d03b02409cf586cea0f04a7a1fded7b8615c1c00872ebfed60493a01cef5c0f3"
 
       define_method(:install) do
         bin.install "vcluster-darwin-arm64" => "vcluster"
@@ -32,15 +32,15 @@ class VclusterExperimental < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.35.5-rc.3/vcluster-linux-amd64"
-      sha256 "41eb7e56d7445e3efe599f7835405a5cf67dea07e86bd8f784492faf4de064be"
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.36.4-rc.3/vcluster-linux-amd64"
+      sha256 "39d82072430bdbfe829d4284f9c06b9efc89d070e8a7fba51809e17610fdf24c"
       define_method(:install) do
         bin.install "vcluster-linux-amd64" => "vcluster"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/loft-sh/vcluster/releases/download/v0.35.5-rc.3/vcluster-linux-arm64"
-      sha256 "173d0b057482a3b4f76de347423d0ec41a073e382e85dc04aa32e3d754b4942a"
+      url "https://github.com/loft-sh/vcluster/releases/download/v0.36.4-rc.3/vcluster-linux-arm64"
+      sha256 "b380b03dc5543619f1936ae4ed3797de3ffec7684a962d47a756fdfbd7e3f9d6"
       define_method(:install) do
         bin.install "vcluster-linux-arm64" => "vcluster"
       end
